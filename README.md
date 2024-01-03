@@ -1,4 +1,6 @@
 # django_market_crud
+This is a simple Django React CRUD application.
+
 
 # Environment variables
 
