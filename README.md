@@ -19,7 +19,7 @@ Creado con vite debes ingresar cd client e instalar npm con el comando
 
 
 
-<img align="center" src="/client/public/documentacion.png">
+<img align="center" src="/client/public/marketapp.png">
 
 
 # Requisitos prueba tecnica
