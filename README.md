@@ -22,8 +22,8 @@ Escribir una función en Python que recorra los datos y agrupe los productos med
 }
 
 
-1. http://127.0.0.1:8000/markets/api/products/last_active_price
-2. Objetivo: Obtener estadísticas mensuales de ventas.
+Respuesat 1. http://127.0.0.1:8000/markets/api/products/last_active_price
+Respuesta 2. Objetivo: Obtener estadísticas mensuales de ventas.
 Pasos:
 Conectar a la Base de Datos:
 
@@ -45,7 +45,7 @@ Programar la Ejecución Automática:
 Configurar un sistema de tareas programadas para que este proceso se ejecute automáticamente cada fin de mes.
 Este proceso de automatización proporciona información relevante sobre las ventas mensuales, lo cual es valioso para la toma de decisiones empresariales. Puedes adaptar este ejemplo a tu propio contexto y modelos específicos.
 
-3. Basándose en los datos obtenidos en la respuesta de la pregunta 1.
+Respuesta 3. Basándose en los datos obtenidos en la respuesta de la pregunta 1.
 Escribir una función en Python que recorra los datos y agrupe los productos mediante su Ean en el siguiente diccionario 
 {
 	“Ean”: {
