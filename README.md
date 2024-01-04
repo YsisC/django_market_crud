@@ -9,6 +9,7 @@ VITE_BACKEND_URL, esto es necesario para produccin
 # Documentacion
 
 http://127.0.0.1:8000/docs .
+<img align="center" src="/client/public/documentacion.png">
 
 # Requisitos prueba tecnica
 
