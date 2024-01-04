@@ -6,6 +6,10 @@ Estae es un repositorio de una API REST con Django y SQLLITE
 
 VITE_BACKEND_URL, esto es necesario para produccin
 
+# Documentacion
+
+http://127.0.0.1:8000/docs .
+
 # Requisitos prueba tecnica
 
 1. Mediante una query SQL, obtener los productos indicando su último menor precio activo, EAN, SKU y su mercado (market).
@@ -46,7 +50,9 @@ Programar la Ejecución Automática:
 Configurar un sistema de tareas programadas para que este proceso se ejecute automáticamente cada fin de mes.
 Este proceso de automatización proporciona información relevante sobre las ventas mensuales, lo cual es valioso para la toma de decisiones empresariales. Puedes adaptar este ejemplo a tu propio contexto y modelos específicos.
 
-Respuesta 3:
+Respuesta 3: http://127.0.0.1:8000/markets/api/products/group_products
+
+
 
 
 
