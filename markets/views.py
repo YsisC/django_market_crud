@@ -33,6 +33,53 @@ def product_list(request):
 
     return JsonResponse({'products': product_data})
 
+def group_products(request):
+    # Obtén los datos de la solicitud, ajusta según sea necesario
+    # Obtener todos los datos de Product
+    productos = Product.objects.all()
+
+    # Obtener todos los datos de Price
+    precios = Price.objects.all()
+
+    # Obtener todos los datos de Market
+    mercados = Market.objects.all()
+
+    # Diccionario para almacenar los productos agrupados por Ean
+    productos_agrupados = {}
+
+    for producto in productos:
+        ean = producto.Ean
+        nombre_producto = producto.name
+        precios_producto = precios.filter(product=producto)
+        
+        # Inicializar la entrada del diccionario si es la primera vez que se encuentra el Ean
+        if ean not in productos_agrupados:
+            productos_agrupados[ean] = {
+                'nombre_producto': nombre_producto,
+                'datos_query': [],
+                'cantidad_markets': set(),
+                'rango_precios': {'mayor': float('-inf'), 'menor': float('inf')}
+            }
+
+        # Agregar datos a la entrada del diccionario
+        for precio_producto in precios_producto:
+            market_id = precio_producto.market.id
+            datos_query = f'Producto: {nombre_producto}, Mercado: {market_id}, Precio: {precio_producto.normal_price}'
+            productos_agrupados[ean]['datos_query'].append(datos_query)
+            productos_agrupados[ean]['cantidad_markets'].add(market_id)
+
+            # Actualizar el rango de precios
+            if precio_producto.normal_price > productos_agrupados[ean]['rango_precios']['mayor']:
+                productos_agrupados[ean]['rango_precios']['mayor'] = precio_producto.normal_price
+            if precio_producto.normal_price < productos_agrupados[ean]['rango_precios']['menor']:
+                productos_agrupados[ean]['rango_precios']['menor'] = precio_producto.normal_price
+
+    # Calcular la cantidad de markets diferentes
+    for ean, producto_info in productos_agrupados.items():
+        producto_info['cantidad_markets'] = len(producto_info['cantidad_markets'])
+
+    return JsonResponse({'Ean': productos_agrupados})
+
 class LastActivePriceMixin:
     def get_object(self):
         queryset = self.get_queryset()
