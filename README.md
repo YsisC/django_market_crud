@@ -11,6 +11,17 @@ VITE_BACKEND_URL, esto es necesario para produccin
 http://127.0.0.1:8000/docs .
 <img align="center" src="/client/public/documentacion.png">
 
+# Frontend
+
+Creado con vite debes ingresar cd client e instalar npm con el comando 
+
+`npm install`
+
+
+
+<img align="center" src="/client/public/documentacion.png">
+
+
 # Requisitos prueba tecnica
 
 1. Mediante una query SQL, obtener los productos indicando su último menor precio activo, EAN, SKU y su mercado (market).
