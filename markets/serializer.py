@@ -1,12 +1,7 @@
 from rest_framework import serializers
 from .models import Product, Price, Market
+from django.db.models import OuterRef, Subquery
 
-class ProductLastActivePriceSerializer(serializers.Serializer):
-    name = serializers.CharField()
-    EAN = serializers.CharField()
-    SKU = serializers.CharField()
-    last_active_price = serializers.DecimalField(max_digits=10, decimal_places=2)
-    market_name = serializers.CharField()
 
 
 class MarketSerializer(serializers.ModelSerializer):
@@ -15,19 +10,24 @@ class MarketSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PriceSerializer(serializers.ModelSerializer):
-    product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), source='product', write_only=True)
     class Meta:
         model = Price
-        fields = ['id', 'product', 'market', 'normal_price', 'discount_price', 'active', 'create_date']
+        fields = ['normal_price', 'discount_price', 'active', 'create_date']
 
 class ProductSerializer(serializers.ModelSerializer):
-    market_id = serializers.PrimaryKeyRelatedField(queryset=Market.objects.all(), source='market', write_only=True)
-    class Meta:
-        model = Product
-        fields = ['id', 'name', 'SKU', 'Ean', 'market_id']
+    last_active_price = serializers.SerializerMethodField()
 
-class ProductLastSerializer(serializers.ModelSerializer):
-    market_id = serializers.PrimaryKeyRelatedField(queryset=Market.objects.all(), source='market', write_only=True)
     class Meta:
         model = Product
-        fields = ['id', 'name', 'SKU', 'Ean', 'market_id']
+        fields = ['id', 'name', 'SKU', 'Ean', 'last_active_price']
+
+    def get_last_active_price(self, obj):
+        return obj.last_active_price()
+
+# class ProductSerializer(serializers.ModelSerializer):
+#     last_active_price = PriceSerializer()
+#     market_id = serializers.PrimaryKeyRelatedField(queryset=Market.objects.all(), source='market', write_only=True)
+#     class Meta:
+#         model = Product
+#         fields = ['id', 'name', 'SKU', 'Ean', 'market_id', 'las_active_price']
+
