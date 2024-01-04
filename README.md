@@ -7,16 +7,26 @@ Estae es un repositorio de una API REST con Django y SQLLITE
 VITE_BACKEND_URL, esto es necesario para produccin
 
 # Documentacion
+## Backend
 
+Debes tener python e ingresar los env
+
+Para correr la api
+`python manage.py runserver     `
 http://127.0.0.1:8000/docs .
 <img align="center" src="/client/public/documentacion.png">
 
-# Frontend
+## Frontend
 
-Creado con vite debes ingresar cd client e instalar npm con el comando 
+Creado con vite debes ingresar a:
+
+ `cd client`
+ 
+ E instalar npm con el comando 
 
 `npm install`
-
+ y luego
+ `npm run server`
 
 
 <img align="center" src="/client/public/marketapp.png">
