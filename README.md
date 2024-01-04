@@ -4,7 +4,7 @@ Estae es un repositorio de una API REST con Django y SQLLITE
 
 # Variables de entorno
 
-VITE_BACKEND_URL, this is neccessary in production, it should be the url of the backend server
+VITE_BACKEND_URL, esto es necesario para produccin
 
 # Requisitos prueba tecnica
 
