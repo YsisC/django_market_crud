@@ -8,9 +8,9 @@ const URL =
 
 console.log(URL);
 const tasksApi = axios.create({
-  baseURL: `${URL}/markets/api/v1/products`,
+  baseURL: `${URL}//markets/api/v1/products`,
 });
 
 export const getAlProducts = () => tasksApi.get("/");
 export const getAllLastPriceProduct = () => tasksApi.get("/last_active_price");
-export const getAllGroupProduct = () => tasksApi.get("/group_products/");
+export const getAllGroupProduct = () => tasksApi.get("/group_products");

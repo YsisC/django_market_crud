@@ -4,7 +4,6 @@ import { MarketsPage } from './pages/MarketsPage';
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>
