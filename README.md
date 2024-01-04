@@ -13,7 +13,12 @@ Debes tener python e ingresar los env
 
 Para correr la api
 `python manage.py runserver     `
+
+se muestra la documentacion en:
+
 http://127.0.0.1:8000/docs .
+
+
 <img align="center" src="/client/public/documentacion.png">
 
 ## Frontend
