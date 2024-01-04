@@ -11,7 +11,7 @@ class Market(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255)
     SKU = models.CharField(max_length=50, unique=True)
-    Ean = models.CharField(max_length=50, unique=True)
+    Ean = models.CharField(max_length=50, unique=False)
 
     def last_active_price(self):
         last_price = self.price_set.filter(active=True).order_by('-create_date').first()
