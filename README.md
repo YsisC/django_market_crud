@@ -6,7 +6,7 @@ Estae es un repositorio de una API REST con Django y SQLLITE
 
 VITE_BACKEND_URL, this is neccessary in production, it should be the url of the backend server
 
-#Requisitos
+# Requisitos prueba tecnica
 
 1. Mediante una query SQL, obtener los productos indicando su último menor precio activo, EAN, SKU y su mercado (market).
 2. Teniendo en cuenta el modelo de la imagen 1, describa con palabras un proceso que tenga que ser ejecutado cada cierto tiempo (automatización) y que obtenga información “relevante” diferente a la pedida en la pregunta 1.
